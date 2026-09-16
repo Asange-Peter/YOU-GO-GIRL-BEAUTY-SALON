@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact YOU-GO-GIRL Beauty Salon in Gqeberha for beauty service enquiries and appointments.">
-    <title>YOU-GO-GIRL BEAUTY SALON | Contact</title>
+    <meta name="keywords" content="contact beauty salon, book appointment, Gqeberha salon, YOU-GO-GIRL">
+    <title>YOU-GO-GIRL BEAUTY SALON | Contact & Bookings</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -12,49 +13,69 @@
         <nav aria-label="Main navigation">
             <a href="./index.html">HOME</a>
             <a href="./about.html">ABOUT US</a>
-            <a href="./contact.html">CONTACT US</a>
-            <a href="./price.html">PRICES</a>
             <a href="./services.html">SERVICES</a>
+            <a href="./price.html">PRICES</a>
+            <a href="./contact.html">CONTACT US</a>
         </nav>
     </header>
 
     <main>
         <section>
-            <h1>Contact YOU-GO-GIRL</h1>
+            <h1>Contact & Bookings</h1>
             <p>
-                Have a question about a hairstyle, makeup look, lashes, nails or wigs?
-                Get in touch with our salon for enquiries, service information and appointment details.
+                Ready for your next beauty look? Contact YOU-GO-GIRL Beauty Salon for service
+                questions, price confirmation and appointment enquiries. Tell us what you would
+                like and we can use your enquiry to understand your beauty needs.
             </p>
+        </section>
+
+        <section>
+            <h2>Get in Touch</h2>
+            <table>
+                <thead><tr><th>Contact Option</th><th>Details</th><th>Purpose</th></tr></thead>
+                <tbody>
+                    <tr><td>Email</td><td>yougogirlbeautysalon@gmail.com</td><td>General enquiries and appointment questions</td></tr>
+                    <tr><td>Telephone</td><td>(041)-563 4456</td><td>Salon enquiries and appointment information</td></tr>
+                    <tr><td>Opening Hours</td><td>Monday - Friday, 07:00 - 19:00</td><td>Salon operating hours</td></tr>
+                    <tr><td>Location</td><td>3 Collett Street, Adcocvale, Gqeberha</td><td>In-person salon visits</td></tr>
+                </tbody>
+            </table>
         </section>
 
         <section>
             <h2>Our Mission</h2>
             <p>
-                Our mission is to provide customers with quality beauty services and accessible
-                beauty products while creating a welcoming environment where clients can express
-                their personal style and feel confident.
+                Our mission is to provide customers with creative and accessible beauty services
+                while creating a welcoming environment where clients can express their personal
+                style and feel confident.
             </p>
             <h2>Our Vision</h2>
             <p>
                 Our vision is to grow as a trusted local beauty destination known for friendly
-                service, creativity, variety and a positive salon experience.
+                customer care, variety, creativity and a positive salon experience.
             </p>
         </section>
 
         <section>
-            <h2>Keep in Touch</h2>
-            <ul>
-                <li><strong>Email:</strong> yougogirlbeautysalon@gmail.com</li>
-                <li><strong>Phone:</strong> (041)-563 4456</li>
-                <li><strong>Hours:</strong> Monday to Friday, 07:00 to 19:00</li>
-            </ul>
+            <h2>How to Make an Appointment Enquiry</h2>
+            <ol>
+                <li>Choose a service from our <a href="./services.html">Services</a> page.</li>
+                <li>Check the listed prices on our <a href="./price.html">Prices</a> page.</li>
+                <li>Choose a preferred date and provide details about your desired style.</li>
+                <li>Send the enquiry form below.</li>
+                <li>Confirm the final appointment details with the salon.</li>
+            </ol>
         </section>
 
         <section>
-            <h2>Visit Our Salon</h2>
+            <h2>Find Us</h2>
             <p><strong>Address:</strong> 3 Collett Street, Adcocvale, Gqeberha</p>
+            <p>
+                If you are visiting for the first time, use the map below as a location guide.
+                Please confirm the address before travelling if your appointment information changes.
+            </p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.94800590713!2d25.583168575522688!3d-33.94246537319854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad3ced36fa7a1%3A0xfbeed64bfc73c71f!2sClifton%20Court!5e0!3m2!1sen!2sza!4v1786087703149!5m2!1sen!2sza"
-                title="YOU-GO-GIRL Beauty Salon location map"
+                title="Map showing the YOU-GO-GIRL Beauty Salon location"
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -62,13 +83,19 @@
 
         <section>
             <h2>Appointment / Enquiry Form</h2>
-            <p>Tell us what beauty service you are interested in and we can use your message as a starting point for your enquiry.</p>
+            <p>
+                Please provide enough information for us to understand the service you are looking
+                for. This form is an enquiry form; appointment details should be confirmed with the salon.
+            </p>
             <form action="#" method="post">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name" required>
 
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" autocomplete="tel">
 
                 <label for="service">Service Interested In:</label>
                 <select id="service" name="service" required>
@@ -76,21 +103,45 @@
                     <option value="hair-wash">Hair Wash</option>
                     <option value="knotless-braids">Knotless Braids</option>
                     <option value="boho-braids">Boho Braids</option>
-                    <option value="nails">Manicure / Pedicure</option>
+                    <option value="manicure">Manicure</option>
+                    <option value="pedicure">Pedicure</option>
                     <option value="lashes">Lash Extensions</option>
                     <option value="makeup">Makeup</option>
-                    <option value="wigs">Wigs</option>
+                    <option value="wigs">Wigs / Hair Products</option>
                 </select>
 
                 <label for="date">Preferred Appointment Date:</label>
                 <input type="date" id="date" name="date">
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="8" placeholder="Tell us about the style or service you would like." required></textarea>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time">
+
+                <label for="message">Tell Us About Your Look:</label>
+                <textarea id="message" name="message" rows="8" placeholder="Describe the style, event or beauty service you would like." required></textarea>
 
                 <button type="submit">Send Enquiry</button>
             </form>
         </section>
+
+        <section>
+            <h2>Frequently Asked Questions</h2>
+            <h3>Can I bring a reference picture?</h3>
+            <p>Yes. A reference picture can help communicate the style you would like.</p>
+
+            <h3>Do prices ever change?</h3>
+            <p>Listed prices are starting prices. Style, length, products and other requirements may affect the final price.</p>
+
+            <h3>What if I am unsure which service I need?</h3>
+            <p>Send an enquiry describing the look you want and the occasion. The salon can provide information about suitable services.</p>
+        </section>
     </main>
+
+    <footer>
+        <p><strong>YOU-GO-GIRL BEAUTY SALON</strong></p>
+        <p>Your beauty. Your confidence. Your style.</p>
+        <p>3 Collett Street, Adcocvale, Gqeberha</p>
+        <p>Email: yougogirlbeautysalon@gmail.com &bull; Tel: (041)-563 4456</p>
+        <p>&copy; 2026 YOU-GO-GIRL Beauty Salon. All rights reserved.</p>
+    </footer>
 </body>
 </html>
