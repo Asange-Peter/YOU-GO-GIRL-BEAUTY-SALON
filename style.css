@@ -1,25 +1,37 @@
 /* =========================================================
    YOU-GO-GIRL BEAUTY SALON - MAIN STYLESHEET
-   External stylesheet used by every HTML page.
+   External CSS stylesheet used by all HTML pages.
    ========================================================= */
 
-/* ---------- CSS VARIABLES / DEFAULT STYLES ---------- */
+/* =========================================================
+   1. CSS VARIABLES / DEFAULT STYLES
+   ========================================================= */
 :root {
     --primary: #9b3d72;
     --primary-dark: #6f2851;
+    --primary-light: #c76a9c;
     --secondary: #f7d7e8;
+    --secondary-light: #fff3f9;
     --accent: #d9a441;
+    --accent-light: #f4e3b5;
     --background: #fff8fc;
     --surface: #ffffff;
     --text: #2f2430;
     --muted: #6d5b67;
     --border: #ead7e2;
+    --success: #4f8a62;
+    --danger: #b94c4c;
+    --shadow-small: 0 3px 10px rgba(80, 35, 60, 0.10);
     --shadow: 0 8px 24px rgba(80, 35, 60, 0.12);
+    --shadow-large: 0 15px 35px rgba(80, 35, 60, 0.18);
+    --radius-small: 8px;
     --radius: 14px;
+    --radius-large: 22px;
     --max-width: 1100px;
+    --transition: 0.25s ease;
 }
 
-/* Basic box sizing and browser reset */
+/* Browser reset and predictable sizing */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,68 +40,111 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
     min-height: 100vh;
-    background: var(--background);
+    background:
+        radial-gradient(circle at top left, rgba(247, 215, 232, 0.55), transparent 30%),
+        linear-gradient(180deg, var(--background) 0%, #ffffff 100%);
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.7;
+    letter-spacing: 0.01em;
 }
 
-/* ---------- LAYOUT STRUCTURE ---------- */
+::selection {
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+/* =========================================================
+   2. HEADER AND NAVIGATION
+   ========================================================= */
 header {
-    background: var(--surface);
+    background: rgba(255, 255, 255, 0.97);
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 2px 10px rgba(80, 35, 60, 0.08);
+    box-shadow: var(--shadow-small);
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(8px);
 }
 
 nav {
-    max-width: var(--max-width);
+    width: min(94%, var(--max-width));
     margin: 0 auto;
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
     flex-wrap: wrap;
 }
 
 nav a {
     display: inline-block;
-    padding: 0.65rem 1rem;
+    padding: 0.7rem 1.15rem;
+    border: 1px solid transparent;
     border-radius: 999px;
     color: var(--primary-dark);
     text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background-color var(--transition),
+                color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
 }
 
+/* =========================================================
+   3. MAIN LAYOUT
+   ========================================================= */
 main {
     width: min(92%, var(--max-width));
     margin: 0 auto;
-    padding: 2rem 0 4rem;
+    padding: 2.5rem 0 5rem;
 }
 
 section {
+    position: relative;
     margin-bottom: 2rem;
-    padding: 2rem;
+    padding: 2.25rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* ---------- TYPOGRAPHY ---------- */
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-large);
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-light));
+}
+
+/* =========================================================
+   4. TYPOGRAPHY
+   ========================================================= */
 h1,
 h2,
-h3 {
+h3,
+h4 {
     color: var(--primary-dark);
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -97,16 +152,23 @@ h3 {
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2.1rem, 5vw, 3.5rem);
     text-align: center;
+    letter-spacing: 0.03em;
 }
 
 h2 {
-    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-size: clamp(1.65rem, 4vw, 2.4rem);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 0.5rem;
 }
 
 h3 {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+}
+
+h4 {
+    font-size: 1.1rem;
 }
 
 p,
@@ -115,93 +177,196 @@ li {
 }
 
 p {
+    max-width: 850px;
     margin-bottom: 1rem;
 }
 
-ul {
-    padding-left: 1.4rem;
+p::first-letter {
+    font-weight: 600;
+}
+
+ul,
+ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+li::marker {
+    color: var(--primary);
+    font-weight: 700;
 }
 
 strong {
     color: var(--primary-dark);
 }
 
-/* ---------- HOME PAGE / HERO ---------- */
+/* Links inside normal page content */
+main a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+main a:hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================================
+   5. HOME PAGE / HERO AREA
+   ========================================================= */
 main > section:first-child {
     text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, var(--secondary-light) 100%);
+    border-color: var(--secondary);
+}
+
+main > section:first-child h1 {
+    text-transform: uppercase;
 }
 
 main > section:first-child p {
-    font-size: 1.15rem;
-    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ---------- IMAGES ---------- */
+main > section:first-child p:first-of-type {
+    color: var(--primary);
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   6. IMAGES / RESPONSIVE IMAGES
+   ========================================================= */
 img {
     display: block;
+    width: auto;
     max-width: 100%;
     height: auto;
-    margin: 1rem auto;
-    border-radius: 12px;
+    margin: 1.25rem auto;
+    border: 3px solid #ffffff;
+    border-radius: var(--radius);
     object-fit: cover;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+img:hover {
+    transform: scale(1.015);
+    box-shadow: var(--shadow-large);
 }
 
 section img {
-    box-shadow: 0 5px 16px rgba(80, 35, 60, 0.14);
+    max-height: 520px;
 }
 
-/* ---------- TABLES ---------- */
+section table img {
+    width: 100%;
+    max-width: 360px;
+    max-height: 300px;
+    margin: 0.5rem auto;
+}
+
+/* =========================================================
+   7. TABLES
+   ========================================================= */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 1.5rem 0;
     background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
     overflow: hidden;
+    box-shadow: var(--shadow-small);
 }
 
 th,
 td {
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--border);
+    padding: 1rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     text-align: left;
     vertical-align: middle;
 }
 
+th:last-child,
+td:last-child {
+    border-right: 0;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
 th {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #ffffff;
     font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
-tbody tr:nth-child(even),
-table tr:nth-child(even) {
-    background: #fff3f9;
+tbody tr:nth-child(even) {
+    background: var(--secondary-light);
 }
 
-/* ---------- FORMS ---------- */
+tbody tr {
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+tbody tr:hover {
+    background: var(--secondary);
+}
+
+td strong {
+    color: var(--primary-dark);
+}
+
+/* =========================================================
+   8. FORMS
+   ========================================================= */
 form {
     max-width: 760px;
     margin: 0 auto;
 }
 
 label {
-    display: inline-block;
-    margin-bottom: 0.35rem;
+    display: block;
+    margin: 0.5rem 0 0.35rem;
     color: var(--primary-dark);
-    font-weight: 700;
+    font-weight: 800;
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    padding: 0.8rem 0.9rem;
-    margin-bottom: 0.8rem;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.9rem;
     border: 1px solid #cdb9c5;
-    border-radius: 8px;
+    border-radius: var(--radius-small);
     background: #ffffff;
     color: var(--text);
     font: inherit;
+    line-height: 1.5;
+    transition: border-color var(--transition),
+                box-shadow var(--transition),
+                background-color var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #8a7882;
+    opacity: 1;
 }
 
 textarea {
@@ -209,67 +374,19 @@ textarea {
     resize: vertical;
 }
 
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--primary-light);
+}
+
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 3px solid rgba(155, 61, 114, 0.2);
+    outline: none;
     border-color: var(--primary);
-}
-
-button {
-    border: 0;
-    border-radius: 999px;
-    padding: 0.8rem 1.5rem;
-    background: var(--primary);
-    color: #ffffff;
-    font: inherit;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* ---------- EMBEDDED MAP ---------- */
-iframe {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-height: 320px;
-    border: 0;
-    border-radius: 12px;
-}
-
-/* ---------- DECORATION ---------- */
-hr {
-    border: 0;
-    border-top: 2px solid var(--secondary);
-    margin: 2rem 0;
-}
-
-/* ---------- PSEUDO-CLASSES ---------- */
-nav a:hover,
-nav a:focus-visible {
-    background: var(--primary);
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-nav a:active {
-    transform: translateY(0);
-}
-
-nav a:visited {
-    color: var(--primary-dark);
-}
-
-button:hover,
-button:focus-visible {
-    background: var(--primary-dark);
-    box-shadow: 0 5px 14px rgba(80, 35, 60, 0.2);
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
+    box-shadow: 0 0 0 4px rgba(155, 61, 114, 0.14);
+    background: #fffafd;
 }
 
 input:required,
@@ -281,26 +398,120 @@ textarea:required {
 input:valid,
 select:valid,
 textarea:valid {
-    border-color: #79a879;
+    border-color: var(--success);
 }
 
 input:invalid:not(:placeholder-shown),
 select:invalid,
 textarea:invalid:not(:placeholder-shown) {
-    border-color: #c95b5b;
+    border-color: var(--danger);
 }
 
-/* ---------- RESPONSIVE IMAGES / CONTENT ---------- */
-main > section:first-child img {
+button {
+    display: inline-block;
+    min-width: 150px;
+    border: 2px solid var(--primary);
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
+    background: var(--primary);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: var(--shadow-small);
+    transition: background-color var(--transition),
+                border-color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+/* =========================================================
+   9. GOOGLE MAP / IFRAME
+   ========================================================= */
+iframe {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-height: 360px;
+    margin: 1.5rem auto;
+    border: 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-section table img {
-    width: 100%;
-    max-width: 360px;
+/* =========================================================
+   10. DECORATION
+   ========================================================= */
+hr {
+    border: 0;
+    border-top: 2px solid var(--secondary);
+    margin: 2rem 0;
 }
 
-/* ---------- BREAKPOINT 1: TABLETS ---------- */
+/* =========================================================
+   11. PSEUDO-CLASSES
+   ========================================================= */
+nav a:hover,
+nav a:focus-visible {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-small);
+}
+
+nav a:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+nav a:visited {
+    color: var(--primary-dark);
+}
+
+nav a:hover:visited,
+nav a:focus-visible:visited {
+    color: #ffffff;
+}
+
+button:hover,
+button:focus-visible {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-small);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================================================
+   12. SPECIAL STRUCTURE SELECTORS
+   ========================================================= */
+section:nth-of-type(even) {
+    background: #fffdfE;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+main > section:last-child {
+    border-bottom: 4px solid var(--accent);
+}
+
+/* =========================================================
+   13. RESPONSIVE LAYOUT - TABLETS
+   ========================================================= */
 @media (max-width: 768px) {
     body {
         font-size: 15px;
@@ -311,13 +522,14 @@ section table img {
     }
 
     nav {
+        width: 96%;
         padding: 0.75rem;
-        gap: 0.25rem;
+        gap: 0.3rem;
     }
 
     nav a {
-        padding: 0.55rem 0.75rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.82rem;
     }
 
     main {
@@ -326,11 +538,16 @@ section table img {
     }
 
     section {
-        padding: 1.25rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.35rem;
+    }
+
+    h2 {
+        font-size: 1.85rem;
     }
 
     table {
@@ -339,33 +556,41 @@ section table img {
 
     th,
     td {
-        padding: 0.7rem;
+        padding: 0.75rem;
+    }
+
+    img {
+        max-height: 430px;
     }
 
     iframe {
-        min-height: 280px;
+        min-height: 300px;
     }
 }
 
-/* ---------- BREAKPOINT 2: MOBILE PHONES ---------- */
+/* =========================================================
+   14. RESPONSIVE LAYOUT - MOBILE PHONES
+   ========================================================= */
 @media (max-width: 480px) {
     body {
         font-size: 14px;
     }
 
     nav {
+        width: 94%;
         flex-direction: column;
         align-items: stretch;
     }
 
     nav a {
         width: 100%;
+        padding: 0.7rem;
         text-align: center;
     }
 
     main {
         width: 94%;
-        padding: 1rem 0 2rem;
+        padding: 1rem 0 2.5rem;
     }
 
     section {
@@ -375,34 +600,71 @@ section table img {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
     }
 
     h2 {
-        font-size: 1.45rem;
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
     }
 
     p {
         font-size: 0.98rem;
     }
 
-    /* Allow wide tables to remain readable on small screens. */
+    img {
+        width: 100%;
+        max-height: 360px;
+        border-radius: 10px;
+    }
+
+    /* Keep tables readable by allowing horizontal scrolling. */
     table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        font-size: 0.9rem;
     }
 
     th,
     td {
-        padding: 0.6rem;
+        padding: 0.65rem;
     }
 
-    iframe {
-        min-height: 240px;
+    input,
+    select,
+    textarea {
+        padding: 0.75rem;
+        font-size: 16px;
     }
 
     button {
         width: 100%;
+        min-width: 0;
+    }
+
+    iframe {
+        min-height: 240px;
+        border-radius: 10px;
+    }
+}
+
+/* =========================================================
+   15. ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
