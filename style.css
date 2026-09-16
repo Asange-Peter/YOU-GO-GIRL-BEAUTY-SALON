@@ -1,0 +1,408 @@
+/* =========================================================
+   YOU-GO-GIRL BEAUTY SALON - MAIN STYLESHEET
+   External stylesheet used by every HTML page.
+   ========================================================= */
+
+/* ---------- CSS VARIABLES / DEFAULT STYLES ---------- */
+:root {
+    --primary: #9b3d72;
+    --primary-dark: #6f2851;
+    --secondary: #f7d7e8;
+    --accent: #d9a441;
+    --background: #fff8fc;
+    --surface: #ffffff;
+    --text: #2f2430;
+    --muted: #6d5b67;
+    --border: #ead7e2;
+    --shadow: 0 8px 24px rgba(80, 35, 60, 0.12);
+    --radius: 14px;
+    --max-width: 1100px;
+}
+
+/* Basic box sizing and browser reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ---------- LAYOUT STRUCTURE ---------- */
+header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(80, 35, 60, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+main {
+    width: min(92%, var(--max-width));
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1,
+h2,
+h3 {
+    color: var(--primary-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-align: center;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p,
+li {
+    color: var(--muted);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    padding-left: 1.4rem;
+}
+
+strong {
+    color: var(--primary-dark);
+}
+
+/* ---------- HOME PAGE / HERO ---------- */
+main > section:first-child {
+    text-align: center;
+}
+
+main > section:first-child p {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* ---------- IMAGES ---------- */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+section img {
+    box-shadow: 0 5px 16px rgba(80, 35, 60, 0.14);
+}
+
+/* ---------- TABLES ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 800;
+}
+
+tbody tr:nth-child(even),
+table tr:nth-child(even) {
+    background: #fff3f9;
+}
+
+/* ---------- FORMS ---------- */
+form {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #cdb9c5;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--text);
+    font: inherit;
+}
+
+textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(155, 61, 114, 0.2);
+    border-color: var(--primary);
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ---------- EMBEDDED MAP ---------- */
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 320px;
+    border: 0;
+    border-radius: 12px;
+}
+
+/* ---------- DECORATION ---------- */
+hr {
+    border: 0;
+    border-top: 2px solid var(--secondary);
+    margin: 2rem 0;
+}
+
+/* ---------- PSEUDO-CLASSES ---------- */
+nav a:hover,
+nav a:focus-visible {
+    background: var(--primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+nav a:active {
+    transform: translateY(0);
+}
+
+nav a:visited {
+    color: var(--primary-dark);
+}
+
+button:hover,
+button:focus-visible {
+    background: var(--primary-dark);
+    box-shadow: 0 5px 14px rgba(80, 35, 60, 0.2);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input:required,
+select:required,
+textarea:required {
+    border-left: 4px solid var(--accent);
+}
+
+input:valid,
+select:valid,
+textarea:valid {
+    border-color: #79a879;
+}
+
+input:invalid:not(:placeholder-shown),
+select:invalid,
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #c95b5b;
+}
+
+/* ---------- RESPONSIVE IMAGES / CONTENT ---------- */
+main > section:first-child img {
+    width: 100%;
+}
+
+section table img {
+    width: 100%;
+    max-width: 360px;
+}
+
+/* ---------- BREAKPOINT 1: TABLETS ---------- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        position: static;
+    }
+
+    nav {
+        padding: 0.75rem;
+        gap: 0.25rem;
+    }
+
+    nav a {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    main {
+        width: min(94%, var(--max-width));
+        padding-top: 1.5rem;
+    }
+
+    section {
+        padding: 1.25rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+
+    th,
+    td {
+        padding: 0.7rem;
+    }
+
+    iframe {
+        min-height: 280px;
+    }
+}
+
+/* ---------- BREAKPOINT 2: MOBILE PHONES ---------- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        width: 94%;
+        padding: 1rem 0 2rem;
+    }
+
+    section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    p {
+        font-size: 0.98rem;
+    }
+
+    /* Allow wide tables to remain readable on small screens. */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 0.6rem;
+    }
+
+    iframe {
+        min-height: 240px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
