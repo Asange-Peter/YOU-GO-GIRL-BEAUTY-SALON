@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOU-GO-GIRL-BEAUTY-SALON</title>
+    <meta name="description" content="Contact YOU-GO-GIRL Beauty Salon in Gqeberha for beauty service enquiries and appointments.">
+    <title>YOU-GO-GIRL BEAUTY SALON | Contact</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="./index.html">HOME</a>
             <a href="./about.html">ABOUT US</a>
             <a href="./contact.html">CONTACT US</a>
@@ -16,62 +17,78 @@
             <a href="./services.html">SERVICES</a>
         </nav>
     </header>
+
     <main>
         <section>
-            <h1>Mission and Vision</h1>
+            <h1>Contact YOU-GO-GIRL</h1>
             <p>
-                Our mission is to provide our customers with environmentally friendly products
-                (hair products) at very affordable prices while ensuring that they are satisfied
-                with our services.
+                Have a question about a hairstyle, makeup look, lashes, nails or wigs?
+                Get in touch with our salon for enquiries, service information and appointment details.
             </p>
-            <hr>
         </section>
 
         <section>
-            <h2>Keep in touch</h2>
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to provide customers with quality beauty services and accessible
+                beauty products while creating a welcoming environment where clients can express
+                their personal style and feel confident.
+            </p>
+            <h2>Our Vision</h2>
+            <p>
+                Our vision is to grow as a trusted local beauty destination known for friendly
+                service, creativity, variety and a positive salon experience.
+            </p>
+        </section>
+
+        <section>
+            <h2>Keep in Touch</h2>
             <ul>
-                <li>Email: yougogirlbeautysalon@gmail.com</li>
-                <li>Phone: (041)-563 4456</li>
-                <li>Hours: Monday to Friday 07:00am to 19:00pm</li>
+                <li><strong>Email:</strong> yougogirlbeautysalon@gmail.com</li>
+                <li><strong>Phone:</strong> (041)-563 4456</li>
+                <li><strong>Hours:</strong> Monday to Friday, 07:00 to 19:00</li>
             </ul>
         </section>
 
         <section>
-            <h2>Our salon</h2>
-            <ul>
-                <li>Address: 3 Collett Street, Adcocvale, Gqeberha</li>
-                <li>Map: View on Google Maps</li>
-            </ul>
+            <h2>Visit Our Salon</h2>
+            <p><strong>Address:</strong> 3 Collett Street, Adcocvale, Gqeberha</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.94800590713!2d25.583168575522688!3d-33.94246537319854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad3ced36fa7a1%3A0xfbeed64bfc73c71f!2sClifton%20Court!5e0!3m2!1sen!2sza!4v1786087703149!5m2!1sen!2sza"
-                title="Google Maps location"
+                title="YOU-GO-GIRL Beauty Salon location map"
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </section>
 
         <section>
-            <h2>Inquiry form</h2>
+            <h2>Appointment / Enquiry Form</h2>
+            <p>Tell us what beauty service you are interested in and we can use your message as a starting point for your enquiry.</p>
             <form action="#" method="post">
-                <label for="name">Your name:</label>
-                <input type="text" id="name" name="name" placeholder="Tell us who you are" required>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Where we can reply to you" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
 
-                <label for="proj_type">Project Type:</label>
-                <select id="proj_type" name="proj_type" required>
-                    <option value="">--Select--</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="redesign">Redesign</option>
+                <label for="service">Service Interested In:</label>
+                <select id="service" name="service" required>
+                    <option value="">-- Select a service --</option>
+                    <option value="hair-wash">Hair Wash</option>
+                    <option value="knotless-braids">Knotless Braids</option>
+                    <option value="boho-braids">Boho Braids</option>
+                    <option value="nails">Manicure / Pedicure</option>
+                    <option value="lashes">Lash Extensions</option>
+                    <option value="makeup">Makeup</option>
+                    <option value="wigs">Wigs</option>
                 </select>
 
-                <label for="budget">Estimated budget:</label>
-                <input type="number" id="budget" name="budget" min="0" placeholder="Helps us suggest the right solution." required>
+                <label for="date">Preferred Appointment Date:</label>
+                <input type="date" id="date" name="date">
 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="10" placeholder="Tell us about your goals and timeline." required></textarea>
+                <textarea id="message" name="message" rows="8" placeholder="Tell us about the style or service you would like." required></textarea>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Send Enquiry</button>
             </form>
         </section>
     </main>
