@@ -42,7 +42,7 @@ HTML elements used include:
 
 ## 1.2 Website Pages
 
-The website contains five HTML pages.
+The website contains six HTML pages.
 
 | Page | File | Purpose |
 |---|---|---|
@@ -50,6 +50,7 @@ The website contains five HTML pages.
 | About Us | `pages/about.html` | Explains the salon, mission, vision, values and team. |
 | Services | `pages/services.html` | Describes the beauty services offered. |
 | Prices | `pages/price.html` | Displays the starting price list and pricing information. |
+| Enquiry | `pages/enquiry.html` | Allows visitors to ask about beauty services, products, wig availability and prices. |
 | Contact Us | `pages/contact.html` | Provides contact details, location, FAQs and an appointment enquiry form. |
 
 ## 1.3 Home Page – `index.html`
@@ -172,19 +173,34 @@ It also contains:
 - Description of desired look
 - Send Enquiry button
 
-## 1.8 Navigation
+## 1.8 Enquiry Page – `pages/enquiry.html`
 
-All pages contain a consistent navigation menu with links to:
+The Enquiry page is used for questions about salon services and products. It includes:
+
+- Full name and email address fields
+- Optional contact number
+- Enquiry type selection
+- Service or product selection
+- A message area for the visitor's question
+- Required-field and input-format validation using HTML attributes
+- A submit button that prepares an email through the visitor's email application
+
+The form uses the salon email address as its recipient. Because this is a static HTML/CSS website, it does not save enquiries to a database or send them through a server. The visitor must review and send the prepared email.
+
+## 1.9 Navigation
+
+The main navigation menu links to all six website pages:
 
 - Home
 - About Us
 - Services
 - Prices
+- Enquiry
 - Contact Us
 
 The links use relative paths so that the pages work correctly from the root and `pages` folders.
 
-## 1.9 Images and Assets
+## 1.10 Images and Assets
 
 Website images are stored inside:
 
@@ -194,7 +210,7 @@ Images are used to provide visual examples for hairstyles, nails, lashes and mak
 
 Alternative text (`alt`) is included with website images to describe their content.
 
-## 1.10 HTML Structure and Accessibility
+## 1.11 HTML Structure and Accessibility
 
 The HTML uses semantic elements such as `header`, `nav`, `main`, `section` and `footer` to create a clear document structure.
 
@@ -240,6 +256,7 @@ The stylesheet is structured into the following sections:
 14. CSS Pseudo-classes
 15. Responsive Design – Tablets
 16. Responsive Design – Mobile
+17. Accessibility and Form Feedback
 
 ## 2.3 CSS Variables
 
@@ -367,7 +384,7 @@ CSS styling includes:
 
 ## 2.11 Forms
 
-The contact page contains an appointment/enquiry form.
+The Enquiry page contains a service and product enquiry form, while the Contact page contains a general appointment/enquiry form.
 
 CSS styles the:
 
@@ -476,7 +493,18 @@ At mobile sizes:
 - The footer becomes a single-column layout
 - Social links are centred
 
-## 2.17 CSS Design Theme
+## 2.17 Accessibility and Form Feedback
+
+Additional styles support visitors using a keyboard or assistive accessibility features:
+
+- A skip-to-main-content link becomes visible when focused.
+- `:focus-visible` provides a clear keyboard focus outline.
+- The current navigation page can be identified using `[aria-current="page"]` styling.
+- A form note style highlights information about how email-based forms work.
+- A reduced-motion media query limits animations for visitors who prefer less movement.
+- Print styles hide navigation and footer elements and simplify the page for printing.
+
+## 2.18 CSS Design Theme
 
 The website uses a beauty-salon-inspired visual theme based around:
 
@@ -504,6 +532,7 @@ YOU-GO-GIRL-BEAUTY-SALON/
 │   ├── about.html
 │   ├── services.html
 │   ├── price.html
+│   ├── enquiry.html
 │   └── contact.html
 │
 └── assets/
@@ -548,7 +577,7 @@ YOU-GO-GIRL-BEAUTY-SALON/
 4. The stylesheet is located in `assets/css/style.css`.
 5. Website images are stored in `assets/images/`.
 
-The website is a static HTML/CSS project and does not require a database or JavaScript to display the current content.
+The website is a static HTML/CSS project and does not require a database or JavaScript to display the current content. The enquiry and contact forms use `mailto` to prepare an email in the visitor's email application; they do not provide server-side submission or storage.
 
 ---
 
